@@ -1,0 +1,22 @@
+name = UNLedu 5.3 (Affiliate)
+description = This theme tracks the 5.x version of the UNLedu Web Framework.
+screenshot = screenshot.png
+core = 7.x
+base theme = unl_five
+engine = phptemplate
+
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
+
+regions[navlinks] = Navigation
+regions[highlighted] = Highlighted
+regions[content_top] = Content top
+regions[sidebar_first] = Sidebar first
+regions[content] = Content
+regions[sidebar_second] = Sidebar second
+regions[content_bottom] = Content bottom
+
+regions[contactinfo] = Contact info (Main)
+regions[contactinfo_additional] = Contact info (Additional)
+regions[socialmedia] = Social media
+regions[leftcollinks] = Related links

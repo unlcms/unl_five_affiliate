@@ -22,23 +22,11 @@ function unl_five_affiliate_form_system_theme_settings_alter(&$form, &$form_stat
       '#field_prefix' => t('local/affiliate-idm.html'),
       '#default_value' => NULL !== theme_get_setting('affiliateidm') ? theme_get_setting('affiliateidm') : file_get_contents('https://unlcms.unl.edu/wdn/templates_5.3/includes/local/affiliate-idm.html'),
     ],
-    'affiliatesearch' => [
-      '#type' => 'textarea',
-      '#rows' => 12,
-      '#field_prefix' => t('local/affiliate-search.html'),
-      '#default_value' => NULL !== theme_get_setting('affiliatesearch') ? theme_get_setting('affiliatesearch') : file_get_contents('https://unlcms.unl.edu/wdn/templates_5.3/includes/local/affiliate-search.html'),
-    ],
     'affiliatelogo' => [
       '#type' => 'textarea',
       '#rows' => 12,
       '#field_prefix' => t('local/affiliate-logo-lockup-1.html'),
       '#default_value' => NULL !== theme_get_setting('affiliatelogo') ? theme_get_setting('affiliatelogo') : file_get_contents('https://unlcms.unl.edu/wdn/templates_5.3/includes/local/affiliate-logo-lockup-1.html'),
-    ],
-    'affiliatemobilesearch' => [
-      '#type' => 'textarea',
-      '#rows' => 10,
-      '#field_prefix' => t('local/affiliate-mobile-search.html'),
-      '#default_value' => NULL !== theme_get_setting('affiliatemobilesearch') ? theme_get_setting('affiliatemobilesearch') : file_get_contents('https://unlcms.unl.edu/wdn/templates_5.3/includes/local/affiliate-mobile-search.html'),
     ],
     'affiliatemobileidm' => [
       '#type' => 'textarea',

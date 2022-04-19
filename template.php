@@ -1,6 +1,50 @@
 <?php
 
 /**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function unl_five_affiliate_form_search_block_form_alter(&$form, &$form_state, $form_id) {
+  $form['#id'] = 'search_form';
+  $form['#attributes']['class'][] = 'dcf-form-controls-inline';
+
+  $form['search_block_form']['#id'] = 'q';
+  $form['search_block_form']['#size'] = null;
+  $form['search_block_form']['#attributes']['class'][] = 'dcf-p-0 dcf-pl-1 dcf-pr-1';
+
+  $form['#action'] = $GLOBALS['base_path'] . 'search/node';
+
+  $form['actions']['#theme_wrappers'] = array();
+  $form['actions']['submit']['#attributes']['class'][] = 'dcf-btn dcf-btn-primary';
+  $form['actions']['submit']['#buttontype'] = 'button';
+  $form['actions']['submit']['#value'] = '<span class="dcf-sr-only">Submit</span><svg class="dcf-h-4 dcf-w-4 dcf-stroke-current" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 48 48">
+                                   <path d="M18 36a17.9 17.9 0 0 0 11.27-4l15.31 15.41a2 2 0 0 0 2.84-2.82L32.08 29.18A18 18 0 1 0 18 36zm0-32A14 14 0 1 1 4 18 14 14 0 0 1 18 4z"></path>
+                                </svg>';
+}
+
+/**
+ * Override theme_button(). http://drupal.stackexchange.com/a/163332
+ */
+function unl_five_affiliate_button($variables) {
+  $element = $variables['element'];
+  $element['#attributes']['type'] = 'submit';
+  element_set_attributes($element, array('id', 'name', 'value'));
+
+  $element['#attributes']['class'][] = 'form-' . $element['#button_type'];
+  if (!empty($element['#attributes']['disabled'])) {
+    $element['#attributes']['class'][] = 'form-button-disabled';
+  }
+
+  if (isset($element['#buttontype']) && $element['#buttontype'] == 'button') {
+    $value = $element['#value'];
+    unset($element['#attributes']['value']);
+    return '<button' . drupal_attributes($element['#attributes']) . '>' . $value . '</button>';
+  }
+  else {
+    return '<input' . drupal_attributes($element['#attributes']) . ' />';
+  }
+}
+
+/**
  * Implements template_preprocess_html().
  */
 function unl_five_affiliate_preprocess_html(&$vars, $hook) {

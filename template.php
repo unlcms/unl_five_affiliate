@@ -10,6 +10,7 @@ function unl_five_affiliate_form_search_block_form_alter(&$form, &$form_state, $
   $form['search_block_form']['#id'] = 'q';
   $form['search_block_form']['#size'] = null;
   $form['search_block_form']['#attributes']['class'][] = 'dcf-p-0 dcf-pl-1 dcf-pr-1';
+  $form['search_block_form']['#theme_wrappers'] = array();
 
   $form['#action'] = $GLOBALS['base_path'] . 'search/node';
 
